@@ -51,34 +51,34 @@ TEMPLATES = [
 WSGI_APPLICATION = 'iconstruction_project.wsgi.application'
 
 # MySQL (XAMPP) config via env vars with sensible defaults
-DB_NAME = os.getenv('MYSQL_DATABASE', 'iconstruction')
-DB_USER = os.getenv('MYSQL_USER', 'root')
-DB_PASSWORD = os.getenv('MYSQL_PASSWORD', '')
-DB_HOST = os.getenv('MYSQL_HOST', '127.0.0.1')
-DB_PORT = os.getenv('MYSQL_PORT', '3306')
+# DB_NAME = os.getenv('MYSQL_DATABASE', 'iconstruction')
+# DB_USER = os.getenv('MYSQL_USER', 'root')
+# DB_PASSWORD = os.getenv('MYSQL_PASSWORD', '')
+# DB_HOST = os.getenv('MYSQL_HOST', '127.0.0.1')
+# DB_PORT = os.getenv('MYSQL_PORT', '3306')
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            'charset': 'utf8mb4',
-        },
-    }
-}
-
-# SQLite config for development (comment out MySQL above if using this)
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': DB_NAME,
+#         'USER': DB_USER,
+#         'PASSWORD': DB_PASSWORD,
+#         'HOST': DB_HOST,
+#         'PORT': DB_PORT,
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             'charset': 'utf8mb4',
+#         },
 #     }
 # }
+
+# SQLite config for development (uncomment below if using SQLite)
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
